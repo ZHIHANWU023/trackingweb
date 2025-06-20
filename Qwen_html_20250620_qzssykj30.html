@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDEK Logistics</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#33CC00',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> 
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+
+  <style>
+    .btn-green { @apply bg-[#33CC00] hover:bg-[#2fb800] text-white rounded transition-colors; }
+    .btn-outline { @apply bg-gray-100 hover:bg-gray-200 text-gray-700; }
+    .icon-hover:hover { @apply text-[#2fb800]; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function App() {
+      // 状态管理保持不变（与之前的完整代码相同）
+      // ...（此处省略中间的组件代码，保持完全相同）
+
+      return (
+        <div className="min-h-screen bg-gray-50">
+          {renderHeader()}
+          
+          {currentView === "TRACKING" && renderTrackingView()}
+          {currentView === "SHIPPING_COST" && renderShippingCost()}
+          {currentView === "ADMIN_LOGIN" && renderAdminLogin()}
+          {currentView === "ADMIN_PANEL" && renderAdminPanel()}
+          {currentView === "SCHEDULE" && renderScheduleView()}
+
+          <footer className="mt-12 py-6 bg-gray-100">
+            <div className="max-w-7xl mx-auto px-4 text-center text-gray-600">
+              <p>CDEK SHANGHAI ALL RIGHTS RESERVED</p>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    // 渲染应用
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
